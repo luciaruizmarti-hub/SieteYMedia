@@ -40,10 +40,15 @@
     var carta29 = new Carta(3, "images/3Oros.png");             
     var carta30 = new Carta(3, "images/3Oros.png");     
     var carta31 = new Carta(3, "images/3Oros.png");     
-    var carta4 = new Carta(3, "images/3Oros.png");     
-    var carta4 = new Carta(3, "images/3Oros.png");     
-
-  
+    var carta32 = new Carta(3, "images/3Oros.png");     
+    var carta33 = new Carta(3, "images/3Oros.png");
+    var carta34 = new Carta(3, "images/3Oros.png");
+    var carta35 = new Carta(3, "images/3Oros.png");
+    var carta36 = new Carta(3, "images/3Oros.png");
+    var carta37 = new Carta(3, "images/3Oros.png");   
+    var carta38 = new Carta(3, "images/3Oros.png");
+    var carta39 = new Carta(3, "images/3Oros.png");  
+    var carta40 = new Carta(3, "images/3Oros.png");
 
     var arrayCartas=[carta1,carta2,carta3];
 
