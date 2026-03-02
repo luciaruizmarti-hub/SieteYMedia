@@ -55,7 +55,16 @@
         carta21,carta22,carta23,carta24,carta25,carta26,carta27,carta28,carta29,carta30,
         carta31,carta32,carta33,carta34,carta35,carta36,carta37,carta38,carta39,carta40];
 
-    function SacarCarta(){
-        var elegido= arrayCartas[1];
-        document.getElementById("demo").src=elegido.url;  
+    function SacarCarta() {
+        // 1. CREAMOS una nueva etiqueta <img>
+        var nuevaImagen = document.createElement("img");
+
+        // 2. Le asignamos la ruta de la carta
+        var cartaAleatoria = Math.floor(Math.random() * arrayCartas.length);
+        var elegido = arrayCartas[cartaAleatoria];
+        nuevaImagen.src = elegido.url;
+
+        arrayCartas.splice(cartaAleatoria, 1); //array.splice(indice, cantidad);cantidad: Cuántos elementos quieres eliminar a partir de ahí (en nuestro caso, suele ser 1).
+        console.log(arrayCartas.length);
+        document.getElementById("tapete").appendChild(nuevaImagen);
     }
