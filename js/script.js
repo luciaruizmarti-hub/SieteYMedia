@@ -74,3 +74,18 @@
             valorMax+=elegido.valor;
         }
     }
+    
+    function Plantarse(){
+       while(valorMaxmqui<=5){
+            var nuevaImagen = document.createElement("img");
+            var cartaAleatoria = Math.floor(Math.random() * arrayCartas.length);
+            var elegido = arrayCartas[cartaAleatoria];
+
+            nuevaImagen.src = elegido.url;
+
+            arrayCartas.splice(cartaAleatoria, 1); 
+            document.getElementById("maquina").appendChild(nuevaImagen);
+            
+            valorMaxMaqui+=elegido.valor;
+       }
+    }
