@@ -56,6 +56,7 @@
         carta31,carta32,carta33,carta34,carta35,carta36,carta37,carta38,carta39,carta40];
 
     var valorMax=0;
+    var ok = false;
     function SacarCarta() {
         if(valorMax<=7.5){
             // 1. CREAMOS una nueva etiqueta <img>
@@ -72,11 +73,15 @@
             document.getElementById("tapete").appendChild(nuevaImagen);
             
             valorMax+=elegido.valor;
+            ok=true;
+        }else{
+            ok=false;
         }
     }
     
+    var valorMaxMaqui = 0;
     function Plantarse(){
-       while(valorMaxmqui<=5){
+       while(valorMaxMaqui<=5 && ok==true){
             var nuevaImagen = document.createElement("img");
             var cartaAleatoria = Math.floor(Math.random() * arrayCartas.length);
             var elegido = arrayCartas[cartaAleatoria];
@@ -88,4 +93,18 @@
             
             valorMaxMaqui+=elegido.valor;
        }
+       if(ok==true || ok==false){
+           if(valorMaxMaqui==7.5 && valorMax==7.5){
+               document.getElementById("ganador").innerHTML="Gana la banca";
+           }
+       
+           if(valorMax>7.5){
+               document.getElementById("ganador").innerHTML="Gana la banca. ¡HAS PERDIDO!";
+           }
+       
+           if(valorMaxMaqui>7.5){
+               document.getElementById("ganador").innerHTML="Ganaste";
+           }
+       }
     }
+
