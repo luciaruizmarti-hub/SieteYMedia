@@ -44,7 +44,7 @@ var carta33 = new Carta(3, "images/3Bastos.png");           // 3 de Bastos; valo
 var carta34 = new Carta(4, "images/4Bastos.png");           // 4 de Bastos; valor carta = 4
 var carta35 = new Carta(5, "images/5Bastos.png");           // 5 de Bastos; valor carta = 5
 var carta36 = new Carta(6, "images/6Bastos.png");           // 6 de Bastos; valor carta = 6
-var carta37 = new Carta(7, "images/7Bastos.png");           // 7 de Bastos; valor carta =7
+var carta37 = new Carta(7, "images/7bastos.png");           // 7 de Bastos; valor carta =7
 var carta38 = new Carta(0.5, "images/SotaBastos.png");      // Sota de Bastos; valor carta = 0.5
 var carta39 = new Carta(0.5, "images/CaballoBastos.png");   // Caballo de Bastos; valor carta = 0.5
 var carta40 = new Carta(0.5, "images/ReyBastos.png");       // Rey de Bastos; valor carta = 0.5
