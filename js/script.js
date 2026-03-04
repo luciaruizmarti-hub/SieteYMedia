@@ -57,17 +57,12 @@ var arrayCartas=[carta1,carta2,carta3,carta4,carta5,carta6,carta7,carta8,carta9,
 
 
 
-          
-var juegoTerminado = false;
-var valorMax=0;
+// == VARIABLES == //          
+var juegoTerminado = false;         /* No deja sacar cartas al usuario si pulsamos Plantarse */
+var valorMax=0;                     /* Contar los puntos de el jugador */
+var valorMaxMaqui = 0;              /* Contar los puntos de la máquina/banca*/
 
 function SacarCarta() {
-    // == JUGADOR ACABA == // (IA)
-    /* Cuando el jugador se ha pasado de 7.5 no deja sacar más cartas */
-    if(valorMax>=7.5){
-        return;
-    }
-
     // == NO DEJAR SACAR CARTA AL USUARIO == //
     if(juegoTerminado){
         return;
@@ -79,28 +74,26 @@ function SacarCarta() {
     // == LE ASIGNAMOS LA RUTA A LA CARTA == //
     var cartaAleatoria = Math.floor(Math.random() * arrayCartas.length);
     var elegido = arrayCartas[cartaAleatoria];
-
+    // == ESTABLECE LA IMAGEN == //
     nuevaImagen.src = elegido.url;
-
-    arrayCartas.splice(cartaAleatoria, 1); //array.splice(indice, cantidad);cantidad: Cuántos elementos quieres eliminar a partir de ahí (en nuestro caso, suele ser 1).
+    // == BORRAMOS LA CARTA QUE YA HA SALIDO == //
+    arrayCartas.splice(cartaAleatoria, 1); /*array.splice(indice, cantidad);cantidad: Cuántos elementos quieres eliminar a partir de ahí (en nuestro caso, suele ser 1).*/
     console.log(arrayCartas.length);
     document.getElementById("tapete").appendChild(nuevaImagen);
-    
+    // == INCREMENTAMOS EL VALOR DE LOS PUNTOS DEL JUGADOR == //
     valorMax+=elegido.valor;
 
+    // Si el jugador se pasa de los 7.5 puntos, gana automaticamente la banca
     if(valorMax>7.5){
         document.getElementById("ganador").innerHTML="Gana la banca. ¡Te pasaste!"
         juegoTerminado=true;
     }
-    
+    // Muestra los puntos del jugador
+    document.getElementById("contadorJu").innerHTML=valorMax;
 
 }
 
-var valorMaxMaqui = 0;
 function Plantarse(){
-    if(valorMax>7.5){
-        return;
-    }
     if(juegoTerminado){
         return;
     }
@@ -108,7 +101,7 @@ function Plantarse(){
         var nuevaImagen = document.createElement("img");
         var cartaAleatoria = Math.floor(Math.random() * arrayCartas.length);
         var elegido = arrayCartas[cartaAleatoria];
-
+        
         nuevaImagen.src = elegido.url;
 
         arrayCartas.splice(cartaAleatoria, 1); 
@@ -117,6 +110,7 @@ function Plantarse(){
         valorMaxMaqui+=elegido.valor;
     }
 
+    // == DECIMOS GANADOR == //
     if(valorMaxMaqui>7.5){
         document.getElementById("ganador").innerHTML="¡Ganaste!";
     }
@@ -130,5 +124,7 @@ function Plantarse(){
         document.getElementById("ganador").innerHTML="¡Ganaste!";
     }
     juegoTerminado=true;
+    document.getElementById("contadorMaqui").innerHTML=valorMaxMaqui;
+
 }
 
