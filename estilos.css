@@ -88,3 +88,71 @@ button:hover {
     text-shadow: 5px 5px 0px #000;
     height: 60px;
 }
+
+#btnMusica {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 200; /* Por encima de la capa de grano de película */
+    padding: 10px 15px;
+    background-color: #f1c40f; /* Amarillo Cuphead */
+    border: 4px solid #000;
+    box-shadow: 5px 5px 0px #000;
+    font-family: 'Bangers', cursive;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.1s;
+}
+
+#btnMusica:hover {
+    transform: scale(1.1) rotate(-3deg);
+    background-color: #e74c3c;
+    color: white;
+}
+
+/* Animación de vibración cuando la música suena */
+.musica-activa {
+    animation: vibrarBoton 0.3s infinite alternate;
+}
+
+@keyframes vibrarBoton {
+    from { transform: scale(1) rotate(-2deg); }
+    to { transform: scale(1.05) rotate(2deg); }
+}
+
+#iconoMusica {
+    font-size: 2rem;
+}
+
+#btnMusica small {
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+/* Animación de sacudida */
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+/* Clase que aplicaremos con JS */
+.shake-effect {
+  animation: shake 0.5s; /* Duración de medio segundo */
+  animation-iteration-count: 1;
+}
+
+.shake-effect {
+  animation: shake 0.5s;
+  filter: grayscale(1) sepia(0.5); /* Se vuelve gris y viejo al vibrar */
+}

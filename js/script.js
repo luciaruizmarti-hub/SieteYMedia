@@ -90,7 +90,6 @@ function SacarCarta() {
     }
     // Muestra los puntos del jugador
     document.getElementById("contadorJu").innerHTML=valorMax;
-
 }
 
 function Plantarse(){
@@ -127,4 +126,5 @@ function Plantarse(){
     document.getElementById("contadorMaqui").innerHTML=valorMaxMaqui;
 
 }
+
 
