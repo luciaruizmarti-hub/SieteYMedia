@@ -182,3 +182,23 @@ button:active {
   0% { transform: scale(1.5) translateY(-100px); opacity: 0; }
   100% { transform: scale(1) translateY(0); opacity: 1; }
 }
+
+/* 12. ANIMACIÓN GANAR O PERDER */
+
+.ganar{
+  background-color: rgba(0, 170, 0, 0.8);
+  color: white;
+  padding: 15px 40px;
+  border-radius: 15px;
+  border: 3px solid #00ff88;
+  width: fit-content;
+}
+
+.perder{
+  background-color: rgba(180, 0, 0, 0.85);
+  color: white;
+  padding: 15px 40px;
+  border-radius: 15px;
+  border: 3px solid #ff4444;
+  width: fit-content;
+}
