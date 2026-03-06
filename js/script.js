@@ -84,7 +84,7 @@ var arrayCartas=[carta1,carta2,carta3,carta4,carta5,carta6,carta7,carta8,carta9,
 var juegoTerminado = false;         /* No deja sacar cartas al usuario si pulsamos Plantarse */
 var valorMax=0;                     /* Contar los puntos de el jugador */
 var valorMaxMaqui = 0;              /* Contar los puntos de la máquina/banca */
-
+var mensaje = document.getElementById("ganador");
 
 // == CREACIÓN DE LA FUNCIÓN QUE VA A PERMITIR SACAR CARTA AL USUARIO == //
 function SacarCarta() {
@@ -107,7 +107,8 @@ function SacarCarta() {
     valorMax+=elegido.valor;
     /* Si el jugador se pasa de los 7.5 puntos, gana automaticamente la banca */
     if(valorMax>7.5){
-        document.getElementById("ganador").innerHTML="Gana la banca. ¡Te pasaste!"
+        mensaje.innerHTML="GANA LA BANCA. ¡TE PASASTE!";
+        mensaje.className="perder";
         juegoTerminado=true;
     }
     /* Mostramos el contador que nos indica cuantos puntos tiene el usuario */
@@ -136,16 +137,21 @@ function Plantarse(){
 
     /* Condiciones que nos va a indicar quien es el ganador */
     if(valorMaxMaqui>7.5){
-        document.getElementById("ganador").innerHTML="¡Ganaste!";
+        mensaje.innerHTML="¡GANASTE!";
+        mensaje.className="ganar";
     }
     else if(valorMax== valorMaxMaqui){
-        document.getElementById("ganador").innerHTML="Empate. Gana la banca. ¡HAS PERDIDO!";
+        mensaje.innerHTML="EMPATE. GANA LA BANCA. ¡HAS PERDIDO!";
+        mensaje.className="perder";
+
     }
     else if(valorMaxMaqui> valorMax){
-        document.getElementById("ganador").innerHTML="Gana la banca";
+        mensaje.innerHTML="GANA LA BANCA";
+        mensaje.className="perder";
     }
     else{
-        document.getElementById("ganador").innerHTML="¡Ganaste!";
+        mensaje.innerHTML="¡GANASTE!";
+        mensaje.className="ganar";
     }
     juegoTerminado=true;
     document.getElementById("contadorMaqui").innerHTML=valorMaxMaqui;
