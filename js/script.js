@@ -1,4 +1,4 @@
-// ----------------------------- FUNCIONAMIENTO DEL VIDEOJUEGO (SIETE Y MEDIA) -------------------------------- //
+// -------------------------------------------- FUNCIONAMIENTO DEL VIDEOJUEGO (SIETE Y MEDIA) -------------------------------------------- //
 
 // == DEFINIMOS CUBO == //
 class Carta {
@@ -82,9 +82,8 @@ var arrayCartas=[carta1,carta2,carta3,carta4,carta5,carta6,carta7,carta8,carta9,
 
 // == VARIABLES == //          
 var juegoTerminado = false;         /* No deja sacar cartas al usuario si pulsamos Plantarse */
-var valorMax=0;                     /* Contar los puntos de el jugador */
+var valorMax=0;                     /* Contar los puntos del jugador */
 var valorMaxMaqui = 0;              /* Contar los puntos de la máquina/banca */
-var mensaje = document.getElementById("ganador");
 
 // == CREACIÓN DE LA FUNCIÓN QUE VA A PERMITIR SACAR CARTA AL USUARIO == //
 function SacarCarta() {
@@ -93,6 +92,7 @@ function SacarCarta() {
     if(juegoTerminado){
         return;
     }
+
     /* CREAMOS una nueva etiqueta <img>  */
     var nuevaImagen = document.createElement("img");
     /* Le asignamos la ruta a la carta */
@@ -104,11 +104,13 @@ function SacarCarta() {
     arrayCartas.splice(cartaAleatoria, 1); 
     console.log(arrayCartas.length);
     document.getElementById("tapete").appendChild(nuevaImagen);
+
     valorMax+=elegido.valor;
+
     /* Si el jugador se pasa de los 7.5 puntos, gana automaticamente la banca */
     if(valorMax>7.5){
-        mensaje.innerHTML="GANA LA BANCA. ¡TE PASASTE!";
-        mensaje.className="perder";
+        document.getElementById("ganador").innerHTML="GANA LA BANCA. ¡TE PASASTE!";
+        document.getElementById("ganador").className="perder";
         juegoTerminado=true;
     }
     /* Mostramos el contador que nos indica cuantos puntos tiene el usuario */
@@ -137,23 +139,45 @@ function Plantarse(){
 
     /* Condiciones que nos va a indicar quien es el ganador */
     if(valorMaxMaqui>7.5){
-        mensaje.innerHTML="¡GANASTE!";
-        mensaje.className="ganar";
+        document.getElementById("ganador").innerHTML="¡GANASTE!";
+        document.getElementById("ganador").className="ganar";
     }
-    else if(valorMax== valorMaxMaqui){
-        mensaje.innerHTML="EMPATE. GANA LA BANCA. ¡HAS PERDIDO!";
-        mensaje.className="perder";
+    else if(valorMax==valorMaxMaqui){
+        document.getElementById("ganador").innerHTML="EMPATE. GANA LA BANCA. ¡HAS PERDIDO!";
+        document.getElementById("ganador").className="perder";
 
     }
     else if(valorMaxMaqui> valorMax){
-        mensaje.innerHTML="GANA LA BANCA";
-        mensaje.className="perder";
+        document.getElementById("ganador").innerHTML="GANA LA BANCA";
+        document.getElementById("ganador").className="perder";
     }
     else{
-        mensaje.innerHTML="¡GANASTE!";
-        mensaje.className="ganar";
+        document.getElementById("ganador").innerHTML="¡GANASTE!";
+        document.getElementById("ganador").className="ganar";
     }
     juegoTerminado=true;
     document.getElementById("contadorMaqui").innerHTML=valorMaxMaqui;
 
+}
+
+
+// ------------------------------------------------- FUNCIONAMIENTO DE LA PARTE ESTÉTICA DEL VIDEOJUEGO ------------------------------------------------- //
+
+// == FUNCIÓN PARA CAMBIAR DE LA PANTALLA DE INICIO AL JUEGO == //
+function empezarJuego() {
+    // 1. Ocultamos la pantalla de inicio
+    document.getElementById("pantalla-inicio").style.display = "none";
+    
+    // 2. Mostramos la pantalla del juego
+    document.getElementById("pantalla-juego").style.display = "block";
+    
+    /*
+
+    // Opcional: Iniciar la música automáticamente al darle a jugar
+    var musica = document.getElementById("musicaFondo");
+    if(musica.paused) {
+        alternarMusica();
+    }
+        
+    */
 }
