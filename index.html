@@ -8,28 +8,42 @@
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-    <h1>SIETE Y MEDIA</h1>
-    <img id="demo" src="" alt="">
-    
-    <button onclick="SacarCarta()">Sacar Carta</button>
-    
-    <div class="zona-juego">
-        <div id="tapete"></div>
-        <div id="contadorJu">0</div>
+    <!-- Pantalla de inicio -->
+    <div id="pantalla-inicio">
+        <h1 class="titulo-gigante">SIETE Y MEDIA</h1>
+        <p class="subtitulo">¿Podrás vencer a la banca?</p>
+        <button onclick="empezarJuego()" class="btn-jugar">JUGAR AHORA</button>
     </div>
-    
-    <button onclick="Plantarse()">Plantarse</button>
-    
-    <div class="zona-juego">
-        <div id="maquina"></div>
-        <div id="contadorMaqui">0</div>
+
+    <!-- Interfaz donde el usuario puede jugar -->
+    <div id="pantalla-juego" style="display: none;">
+        <h1>SIETE Y MEDIA</h1>
+        <img id="demo" src="" alt="">
+        
+        <button onclick="SacarCarta()">Sacar Carta</button>
+        
+        <div class="zona-juego">
+            <div id="tapete"></div>
+            <div id="contadorJu">0</div>
+        </div>
+        
+        <button onclick="Plantarse()">Plantarse</button>
+        
+        <div class="zona-juego">
+            <div id="maquina"></div>
+            <div id="contadorMaqui">0</div>
+        </div>
+        
+        <div id="ganador"></div>
     </div>
-    
-    <div id="ganador"></div>
-    
+
     <button id="btnMusica" onclick="alternarMusica()">
         <span id="iconoMusica">🔊</span> 
         <small>MUSIC: ON</small>
     </button>
+    
+    <audio id="musicaFondo" loop>
+        <source src="tu-cancion-de-casino.mp3" type="audio/mpeg">
+    </audio>
 </body>
 </html>
