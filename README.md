@@ -3,8 +3,12 @@
 ### **1. Introducción al Juego**
 
 Las 7 y Media es un juego de cartas que se juega con la baraja española, compuesta por 40 cartas, excluyendo las cartas 8 y 9.
+
 El objetivo principal es obtener una puntuación lo más cercana posible a 7,5 puntos sin sobrepasar esa cantidad.
+
 El participante competirá contra una máquina, la cual realiza su turno de forma automática una vez que el jugador ha terminado el suyo.
+
+Para el desarrollo de este videojuego hemos utilizado tecnologías web como HTML para la estructura de la página, CSS para el diseño y la apariencia visual, y el lenguaje de programación JavaScript para implementar toda la lógica y funcionamiento del juego.
 
 ### **2. Puntuación de las Cartas**
 
