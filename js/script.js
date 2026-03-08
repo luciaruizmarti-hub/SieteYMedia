@@ -170,14 +170,27 @@ function empezarJuego() {
     
     // 2. Mostramos la pantalla del juego
     document.getElementById("pantalla-juego").style.display = "block";
-    
-    /*
 
-    // Opcional: Iniciar la música automáticamente al darle a jugar
+    // 3. Iniciar música automáticamente
+    alternarMusica();
+}
+
+// == FUNCIÓN PARA PONER MÚSICA DE FONDO == //
+function alternarMusica(){
+
     var musica = document.getElementById("musicaFondo");
-    if(musica.paused) {
-        alternarMusica();
+    musica.volume = 0.3;
+    var icono = document.getElementById("iconoMusica");
+    var texto = document.querySelector("#btnMusica small");
+
+    /* Condición que nos indica cuando la música se va a reproducir*/
+    if(musica.paused){
+        musica.play();
+        icono.innerHTML = "🔊";
+        texto.innerHTML = "MUSIC: ON";
+    } else {
+        musica.pause();
+        icono.innerHTML = "🔇";
+        texto.innerHTML = "MUSIC: OFF";
     }
-        
-    */
 }
